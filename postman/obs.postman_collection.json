@@ -1,0 +1,1702 @@
+{
+	"info": {
+		"_postman_id": "14dad23b-6bcf-4bee-8acb-262e8dc9cd7e",
+		"name": "obs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20117074",
+		"_collection_link": "https://interstellar-firefly-208568.postman.co/workspace/Michael~d228ec27-94ac-4124-9421-2623d0850ceb/collection/20117074-14dad23b-6bcf-4bee-8acb-262e8dc9cd7e?action=share&source=collection_link&creator=20117074"
+	},
+	"item": [
+		{
+			"name": "item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"item satu\",\n    \"price\" :10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/items",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testCreateItem_ShouldReturnCreated",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"item1\",\n    \"description\":\"item satu\",\n    \"price\" :10,\n    \"cost\" : 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/items",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Nov 2024 13:45:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Item created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"createdAt\": \"2024-11-06T13:45:14.374012Z\",\n        \"updatedAt\": \"2024-11-06T13:45:14.374012Z\",\n        \"deletedAt\": null,\n        \"createdBy\": null,\n        \"updatedBy\": null,\n        \"name\": \"item1\",\n        \"description\": \"item satu\",\n        \"price\": 10,\n        \"cost\": 5\n    }\n}"
+				},
+				{
+					"name": "testSaveUser_ShouldReturnBadRequest_WhenUserAlreadyRegistered",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"item1\",\n    \"description\":\"item satu\",\n    \"price\" :10,\n    \"cost\" : 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/items",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Nov 2024 14:25:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"Duplicate Error\": \"item already registered\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/items",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testGetAllItems_ShouldReturnAllItems",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/items",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:12:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"All items retrieved successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 1,\n                \"createdAt\": \"2024-11-09T13:08:32.870564Z\",\n                \"updatedAt\": \"2024-11-09T13:08:32.870564Z\",\n                \"deletedAt\": null,\n                \"name\": \"item satu\",\n                \"price\": 10\n            },\n            {\n                \"id\": 2,\n                \"createdAt\": \"2024-11-09T13:09:46.102528Z\",\n                \"updatedAt\": \"2024-11-09T13:09:46.102528Z\",\n                \"deletedAt\": null,\n                \"name\": \"item dua\",\n                \"price\": 10\n            },\n            {\n                \"id\": 3,\n                \"createdAt\": \"2024-11-09T13:09:50.552358Z\",\n                \"updatedAt\": \"2024-11-09T13:09:50.552358Z\",\n                \"deletedAt\": null,\n                \"name\": \"item tiga\",\n                \"price\": 10\n            },\n            {\n                \"id\": 4,\n                \"createdAt\": \"2024-11-09T13:09:55.294885Z\",\n                \"updatedAt\": \"2024-11-09T13:09:55.294885Z\",\n                \"deletedAt\": null,\n                \"name\": \"item empat\",\n                \"price\": 10\n            },\n            {\n                \"id\": 5,\n                \"createdAt\": \"2024-11-09T13:10:00.108011Z\",\n                \"updatedAt\": \"2024-11-09T13:10:00.108011Z\",\n                \"deletedAt\": null,\n                \"name\": \"item lima\",\n                \"price\": 10\n            },\n            {\n                \"id\": 6,\n                \"createdAt\": \"2024-11-09T13:10:04.574352Z\",\n                \"updatedAt\": \"2024-11-09T13:10:04.574352Z\",\n                \"deletedAt\": null,\n                \"name\": \"item enam\",\n                \"price\": 10\n            },\n            {\n                \"id\": 7,\n                \"createdAt\": \"2024-11-09T13:10:07.975365Z\",\n                \"updatedAt\": \"2024-11-09T13:10:07.975365Z\",\n                \"deletedAt\": null,\n                \"name\": \"item tujuh\",\n                \"price\": 10\n            },\n            {\n                \"id\": 8,\n                \"createdAt\": \"2024-11-09T13:10:14.768380Z\",\n                \"updatedAt\": \"2024-11-09T13:10:14.768380Z\",\n                \"deletedAt\": null,\n                \"name\": \"item delapan\",\n                \"price\": 10\n            },\n            {\n                \"id\": 9,\n                \"createdAt\": \"2024-11-09T13:10:20.492725Z\",\n                \"updatedAt\": \"2024-11-09T13:10:20.492725Z\",\n                \"deletedAt\": null,\n                \"name\": \"item sembilan\",\n                \"price\": 10\n            },\n            {\n                \"id\": 10,\n                \"createdAt\": \"2024-11-09T13:10:24.076162Z\",\n                \"updatedAt\": \"2024-11-09T13:10:24.076162Z\",\n                \"deletedAt\": null,\n                \"name\": \"item sepuluh\",\n                \"price\": 10\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 10,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalPages\": 1,\n        \"totalElements\": 10,\n        \"first\": true,\n        \"size\": 10,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 10,\n        \"empty\": false\n    }\n}"
+				},
+				{
+					"name": "testGetItemById_ShouldReturnItem_WhenItemExists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/items/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:13:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Item retrieved successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"createdAt\": \"2024-11-09T13:08:32.870564Z\",\n        \"updatedAt\": \"2024-11-09T13:08:32.870564Z\",\n        \"deletedAt\": null,\n        \"name\": \"item satu\",\n        \"price\": 10\n    }\n}"
+				},
+				{
+					"name": "testGetItemById_ShouldReturnNotFound_WhenItemDoesNotExist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/items/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"15"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:16:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"item not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"item satu diedit\",\n    \"price\" :15\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/items/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testUpdateItem_ShouldReturnOk",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"item satu diedit\",\n    \"price\" :15\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/items/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:32:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Item updated successfully\"\n}"
+				},
+				{
+					"name": "testUpdateItem_ShouldReturn_NotFound",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"item satu diedit\",\n    \"price\" :15\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/items/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"15"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:41:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"item not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/items/10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						"10"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testDeleteItem_ShouldReturnOk",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/items/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Nov 2024 14:34:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Item deleted successfully\"\n}"
+				},
+				{
+					"name": "testDeleteItem_ShouldReturnNotFound_WhenItemDoesNotExist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/items/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"10"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Nov 2024 14:34:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"item not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "inventory-transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\":1,\n    \"qty\": 5,\n    \"type\" :\"T\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/inventory-transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventory-transaction"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testCreateInventoryTransaction_ShouldReturnCreated",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":1,\n    \"qty\": 5,\n    \"type\" :\"T\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/inventory-transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:48:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Transaction created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"createdAt\": \"2024-11-09T13:48:42.327454Z\",\n        \"updatedAt\": \"2024-11-09T13:48:42.327454Z\",\n        \"deletedAt\": null,\n        \"itemId\": 1,\n        \"qty\": 5,\n        \"type\": \"T\"\n    }\n}"
+				},
+				{
+					"name": "testCreateInventoryTransaction_InvalidType_ShouldReturnBadRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":1,\n    \"qty\": 5,\n    \"type\" :\"X\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/inventory-transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:52:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation error\",\n    \"errors\": {\n        \"type\": \"Type must be either 'T' for Top Up or 'W' for Withdrawal\"\n    }\n}"
+				},
+				{
+					"name": "testCreateInventoryTransaction_MissingItemId_ShouldReturnBadRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":0,\n    \"qty\": 5,\n    \"type\" :\"T\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/inventory-transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:53:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation error\",\n    \"errors\": {\n        \"itemId\": \"must be greater than 0\"\n    }\n}"
+				},
+				{
+					"name": "testCreateItem_NullQuantity_ShouldReturnBadRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":3,\n    \"qty\": 0,\n    \"type\" :\"T\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/inventory-transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:56:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation error\",\n    \"errors\": {\n        \"qty\": \"must be greater than 0\"\n    }\n}"
+				},
+				{
+					"name": "testGetItemById_NotFound_ShouldReturnNotFound",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":993,\n    \"qty\": 15,\n    \"type\" :\"T\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/inventory-transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:56:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"item is not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "inventory-transaction",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "testGetItemById_NotFound_ShouldReturnNotFound",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/inventory-transaction/999",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction",
+								"999"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 13:58:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"inventory not found\"\n    }\n}"
+				},
+				{
+					"name": "testGetInventoryTransactionById_ShouldReturnInventoryTransaction_WhenExists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/inventory-transaction/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 14:10:06 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Inventory Transaction retrieved successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"createdAt\": \"2024-11-09T13:48:42.327454Z\",\n        \"updatedAt\": \"2024-11-09T13:48:42.327454Z\",\n        \"deletedAt\": null,\n        \"itemId\": 1,\n        \"qty\": 5,\n        \"type\": \"T\"\n    }\n}"
+				},
+				{
+					"name": "testGetAllInventoryTransactions_ShouldReturnPageOfInventoryTransactions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/inventory-transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 14:10:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"All transaction retrieved successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 1,\n                \"createdAt\": \"2024-11-09T13:48:42.327454Z\",\n                \"updatedAt\": \"2024-11-09T13:48:42.327454Z\",\n                \"deletedAt\": null,\n                \"itemId\": 1,\n                \"qty\": 5,\n                \"type\": \"T\"\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 10,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalPages\": 1,\n        \"totalElements\": 1,\n        \"first\": true,\n        \"size\": 10,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 1,\n        \"empty\": false\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "inventory-transaction",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/inventory-transaction/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventory-transaction",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testUpdateInventoryTransaction_ShouldReturnOk",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":1,\n    \"qty\": 15,\n    \"type\" :\"T\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/inventory-transaction/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 14:12:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Transaction updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "inventory-transaction",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/inventory-transaction/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventory-transaction",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testDeleteInventoryTransaction_ShouldReturnOk() throws Exception {",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/inventory-transaction/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 14:13:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Transaction deleted successfully\"\n}"
+				},
+				{
+					"name": "testDeleteInventoryTransaction_ShouldReturnNotFound_WhenDoesNotExist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/inventory-transaction/99",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inventory-transaction",
+								"99"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 14:21:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"inventory transaction not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\":1,\n    \"qty\":3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/orders/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testCreateOrder_ShouldReturnCreated",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":1,\n    \"qty\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:16:21 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"createdAt\": \"2024-11-09T15:16:21.806042Z\",\n        \"updatedAt\": \"2024-11-09T15:16:21.806042Z\",\n        \"deletedAt\": null,\n        \"orderNo\": \"O1\",\n        \"itemId\": 1,\n        \"qty\": 3,\n        \"price\": 15\n    }\n}"
+				},
+				{
+					"name": "testCreateOrder_ShouldReturnBadRequest_WhenItemNotFound",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":1,\n    \"qty\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:59:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"item is not found\"\n    }\n}"
+				},
+				{
+					"name": "testCreateOrder_ShouldReturnBadRequest_WhenStockIsInsufficient",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":1,\n    \"qty\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 16:03:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"out of stock\": \"stock is out cannot perform withdrawal\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testGetOrderById_ShouldReturnOrder_WhenOrderExists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:28:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order retrieved successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"createdAt\": \"2024-11-09T15:16:21.806042Z\",\n        \"updatedAt\": \"2024-11-09T15:16:21.806042Z\",\n        \"deletedAt\": null,\n        \"orderNo\": \"O1\",\n        \"itemId\": 1,\n        \"qty\": 3,\n        \"price\": 15\n    }\n}"
+				},
+				{
+					"name": "testGetAllOrders_ShouldReturnAllOrders",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:29:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"All orders retrieved successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 1,\n                \"createdAt\": \"2024-11-09T15:16:21.806042Z\",\n                \"updatedAt\": \"2024-11-09T15:16:21.806042Z\",\n                \"deletedAt\": null,\n                \"orderNo\": \"O1\",\n                \"itemId\": 1,\n                \"qty\": 3,\n                \"price\": 15\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 10,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalPages\": 1,\n        \"totalElements\": 1,\n        \"first\": true,\n        \"size\": 10,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 1,\n        \"empty\": false\n    }\n}"
+				},
+				{
+					"name": "testGetOrderById_ShouldReturnNotFound_WhenOrderDoesNotExist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 16:04:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"order not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\":3,\n    \"qty\":5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testUpdateOrder_ShouldReturnOk",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":3,\n    \"qty\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:53:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order updated successfully\"\n}"
+				},
+				{
+					"name": "testUpdateOrder_ShouldReturnNotFound_WhenOrderDoesNotExist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_id\":3,\n    \"qty\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 16:04:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"order transaction not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "testDeleteOrder_ShouldReturnOk",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:55:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order deleted successfully\"\n}"
+				},
+				{
+					"name": "testDeleteOrder_ShouldReturnNotFound_WhenOrderDoesNotExist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 16:05:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Application error\",\n    \"errors\": {\n        \"not found error\": \"order transaction not found\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
